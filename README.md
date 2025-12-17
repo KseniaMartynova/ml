@@ -21,7 +21,8 @@ Gene Ontology — это стандартизированная система �
 
 ## Исходные данные
 1) Все таблицы результатов энричмент-анализа (4 группы: Atx, Young, Old, CS).
-2) Скрипт [semantic_model.py](https://github.com/KseniaMartynova/ml/blob/main/semantic_model.py) с функцией:get_semantic_matrix(terms, embedding_dict)
+2) Скрипт [semantic_model.py](https://github.com/KseniaMartynova/ml/blob/main/semantic_model.py) с функцией: **get_semantic_matrix(terms, embedding_dict)**
+
 Он возвращает матрицу размера t × d (t — число терминов, d — размерность эмбеддингов Hig2Vec).
 3) Модель Hig2Vec и словарь эмбеддингов.
 
