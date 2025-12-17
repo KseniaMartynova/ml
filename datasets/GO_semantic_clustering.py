@@ -20,3 +20,4 @@ X = get_semantic_matrix(test_terms, d_human_GO)
 
 
 print(f'Векторное представление термина {test_terms[2]}:\n{X[2]}')
+
