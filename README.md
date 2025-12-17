@@ -38,3 +38,4 @@ Gene Ontology — это стандартизированная система �
 ```from sklearn.metrics.pairwise import cosine_similarity S = cosine_similarity(X) ```
 S — матрица t×t, где значения от -1 до 1
 [Скрипт](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/s_matrix.py)
+2)  [Иерархическая кластеризация](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/clustering.py)
