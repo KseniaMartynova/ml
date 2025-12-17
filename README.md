@@ -28,7 +28,7 @@ Gene Ontology — это стандартизированная система �
 3) Модель Hig2Vec и словарь эмбеддингов.
 
 ### Ход работы 
-1) Получить файл combined_terms.csv
+1) Получить файл [combined_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/combined_terms.csv)
 В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам.
-2) Собрать уникальные термины из всех групп в файл [all_terms.csv] https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv:
+2) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):
 ```all_terms = sorted(set(combined_table["term"]))```
