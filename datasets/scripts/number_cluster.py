@@ -4,11 +4,6 @@ from scipy.cluster.hierarchy import fcluster
 import matplotlib.pyplot as plt
 import os
 
-print("=" * 70)
-print("Оптимизация кластеризации")
-print("=" * 70)
-
-# Загружаем данные
 Z = np.load('linkage_matrix_Z.npy')
 S = np.load('S_matrix.npy')
 df = pd.read_csv('combined_terms.csv')
@@ -49,9 +44,6 @@ def evaluate_clustering(threshold):
     
     return n_clusters, good_percentage
 
-# Тестируем разные пороги
-print("\nТестируем пороги для улучшения качества:")
-print("Порог | Кластеров | % хороших")
 
 thresholds_to_test = [0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8]
 results = []
@@ -110,11 +102,6 @@ for cluster_id, group in cluster_groups:
 # Сортируем по размеру
 cluster_stats.sort(key=lambda x: x['size'], reverse=True)
 
-print(f"\nТоп-10 самых больших кластеров:")
-print("Кластер | Размер | Сред.сходство | Мин.сходство | Статус")
-for stat in cluster_stats[:10]:
-    print(f"{stat['cluster_id']:^7} | {stat['size']:^6} | {stat['mean_similarity']:^13.3f} | {stat['min_similarity']:^12.3f} | {stat['status']}")
-
 # Сохраняем финальные кластеры
 output_file = f"final_clusters_threshold_{best_threshold:.2f}.csv"
 cluster_df.to_csv(output_file, index=False)
@@ -144,4 +131,5 @@ plt.show()
 print("\nСоветы по интерпретации:")
 print("1. Посмотрите heatmap'ы в папке cluster_heatmaps/")
 print("2. Проанализируйте большие кластеры с низким сходством")
+
 print("3. При необходимости можно разделить большие кластеры вручную")
