@@ -38,8 +38,3 @@ plt.tight_layout()
 plt.savefig('cluster_sizes_sorted.png', dpi=150)
 plt.close()
 
-print("1. FINAL_RESULTS.csv - таблица с терминами и кластерами")
-print("2. FINAL_RESULTS.xlsx - то же в Excel")
-print("3. cluster_distribution.png - визуализация")
-print("4. cluster_sizes_sorted.png - визуализация")
-print("\nЗадание выполнено! ✓")
