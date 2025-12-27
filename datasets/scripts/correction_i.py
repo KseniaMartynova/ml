@@ -7,7 +7,7 @@ if len(df.columns) == 3:
     df = df[['term', 'description', 'cluster']]
     print("переименованo")
 else:
-    print("Внимание: не 3 колонки в файле")
+    print("Yе 3 колонки в файле!!!!!!")
 
 output_file = 'semantic_clusters_hierarchical.xlsx'
 df.to_excel(output_file, index=False)
