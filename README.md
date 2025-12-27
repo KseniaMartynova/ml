@@ -28,13 +28,13 @@ Gene Ontology — это стандартизированная система �
 1) Получить с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/join.py) файл [combined_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/combined_terms.csv).
    В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам:
 | term | description |
-|------|-------------|
+|------------|-------------|
 | GO:1902600 | proton transmembrane transport |
 | GO:0006119 | oxidative phosphorylation |
 | GO:0022900 | electron transport chain |
 | GO:0015986 | proton motive force-driven ATP synthesis |
 | GO:0072329 | monocarboxylic acid catabolic process |
-| ...        | ...                                    |
+| ...        | ... |
 3) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):  ```all_terms = sorted(set(combined_table["term"]))```
 4) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)```.  
 Матрица X нужна для дальнейшей кластеризации.
