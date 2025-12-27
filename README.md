@@ -70,5 +70,5 @@ S — матрица t×t, где значения от -1 до 1
 |18.0     |      0.635 |Умеренное сходство|
 
 
- <img width="2618" height="2388" alt="final_dbscan_clusters" src="https://github.com/user-attachments/assets/3471600a-c8c5-4b3e-987b-e53c39cd6b5c" />  <img width="3180" height="2373" alt="dbscan_parameter_comparison" src="https://github.com/user-attachments/assets/df4797f5-9449-47fd-a9c4-ee66c66c656a" /> 
+ <img width="2618" height="2388" alt="final_dbscan_clusters" src="https://github.com/user-attachments/assets/3471600a-c8c5-4b3e-987b-e53c39cd6b5c" />  
 
