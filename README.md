@@ -20,27 +20,40 @@ Gene Ontology — это стандартизированная система �
 4) Устойчивость к шуму: способность методов выделять значимые группы
 
 ## Исходные данные
-1) Все таблицы результатов энричмент-анализа (4 группы: Atx, Young, Old, CS).
+1) Все таблицы результатов aнализa обогащения по функциональной принадлежности (4 группы: Atx, Young, Old, CS).
 2) Скрипт [semantic_model.py](https://github.com/KseniaMartynova/ml/blob/main/semantic_model.py) с функцией: ```get_semantic_matrix(terms, embedding_dict)```.  Он возвращает матрицу размера t × d (t — число терминов, d — размерность эмбеддингов Hig2Vec).
-3) Модель Hig2Vec и словарь эмбеддингов.
+3) Модель Hig2Vec, которая предназначена для иерархического представления терминов Gene Ontology и генов с помощью векторного представления, и словарь эмбеддингов (векторные представления слов).
 
 ### Ход работы 
 1) Получить с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/join.py) файл [combined_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/combined_terms.csv).
-   В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам.
-2) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):  ```all_terms = sorted(set(combined_table["term"]))```
-3) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)```.  
+   В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам:
+   term,description
+GO:1902600,proton transmembrane transport
+GO:0006119,oxidative phosphorylation
+GO:0022900,electron transport chain
+GO:0015986,proton motive force-driven ATP synthesis
+GO:0072329,monocarboxylic acid catabolic process
+GO:0033108,mitochondrial respiratory chain complex assembly
+GO:0080171,lytic vacuole organization
+GO:0006885,regulation of pH
+GO:0006839,mitochondrial transport
+GO:0007006,mitochondrial membrane organization
+3) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):  ```all_terms = sorted(set(combined_table["term"]))```
+4) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)```.  
 Матрица X нужна для дальнейшей кластеризации.
 
 Шаги с 1 по 3 были общими для обоих методов, далее я буду работать над иерархической клатеризацией.
 
 ### Иерархическая кластеризация
-1) Нужно построить матрицу семантической близости. Я буду использовать косинусное сходство:  
+1) Нужно построить матрицу семантической близости.
+Матрица семантической близости используется в биологии для анализа взаимосвязей между биологическими объектами. Такая матрица отражает степень сходства между терминами на основе семантики, закодированной в онтологиях.
+Я буду использовать косинусное сходство, которое измеряет косинус угла между двумя векторами:  
 ```from sklearn.metrics.pairwise import cosine_similarity S = cosine_similarity(X) ```
 S — матрица t×t, где значения от -1 до 1
-[Скрипт](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/s_matrix.py)
-3)  [Иерархическая кластеризация](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/clustering.py)
-4)  [Подбор оптимального количества кластеров](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/number_cluster_i.py)
-5)  [Сформировать итоговую таблицу](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/final_i.py)
+[Скрипт](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/hierarchical/s_matrix.py)
+3)  [Иерархическая кластеризация](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/hierarchical/clustering.py)
+4)  [Подбор оптимального количества кластеров](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/hierarchical/number_cluster_i.py)
+5)  [Сформировать итоговую таблицу](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/hierarchical/final_i.py)
 
 ### Понижение размерности + DBSCAN
 1) Понижение размерности
