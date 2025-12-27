@@ -30,7 +30,7 @@ Gene Ontology — это стандартизированная система �
 <img width="452" height="217" alt="image" src="https://github.com/user-attachments/assets/746aabee-8fac-4681-aea9-63c97b50e821" /> 
 
 3) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):  ```all_terms = sorted(set(combined_table["term"]))```
-4) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)```.  
+4) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)``` из [файла](https://github.com/KseniaMartynova/ml/blob/main/semantic_model.py) 
 Матрица X нужна для дальнейшей кластеризации.
 
 Шаги с 1 по 3 были общими для обоих методов, далее я буду работать над иерархической клатеризацией.
