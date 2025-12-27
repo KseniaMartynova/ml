@@ -39,3 +39,7 @@ Gene Ontology — это стандартизированная система �
 S — матрица t×t, где значения от -1 до 1
 [Скрипт](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/s_matrix.py)
 3)  [Иерархическая кластеризация](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/clustering.py)
+4)  [Подбор оптимального количества кластеров](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/number_cluster_i.py)
+5)  [Сформировать итоговую таблицу](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/final_i.py)
+
+### Понижение размерности + DBSCAN
