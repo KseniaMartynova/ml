@@ -27,7 +27,7 @@ Gene Ontology — это стандартизированная система �
 ### Ход работы 
 1) Получить с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/join.py) файл [combined_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/combined_terms.csv).
    В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам:
-| term | description |
+| term       | description |
 |------------|-------------|
 | GO:1902600 | proton transmembrane transport |
 | GO:0006119 | oxidative phosphorylation |
