@@ -22,19 +22,13 @@ Gene Ontology — это стандартизированная система �
 ## Исходные данные
 1) Все таблицы результатов aнализa обогащения по функциональной принадлежности (4 группы: Atx, Young, Old, CS).
 2) Скрипт [semantic_model.py](https://github.com/KseniaMartynova/ml/blob/main/semantic_model.py) с функцией: ```get_semantic_matrix(terms, embedding_dict)```.  Он возвращает матрицу размера t × d (t — число терминов, d — размерность эмбеддингов Hig2Vec).
-3) Модель Hig2Vec, которая предназначена для иерархического представления терминов Gene Ontology и генов с помощью векторного представления, и словарь эмбеддингов (векторные представления слов).
+3) Модель Hig2Vec, которая предназначена для иерархического представления терминов Gene Ontology и генов с помощью векторного представления, и словарь эмбеддингов (векторные представления).
 
 ### Ход работы 
 1) Получить с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/join.py) файл [combined_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/combined_terms.csv).
    В нем должны быть столбцы term и description из объединенных таблиц (Atx, Young, Old, CS) по строкам:
-| term       | description |
-|------------|-------------|
-| GO:1902600 | proton transmembrane transport |
-| GO:0006119 | oxidative phosphorylation |
-| GO:0022900 | electron transport chain |
-| GO:0015986 | proton motive force-driven ATP synthesis |
-| GO:0072329 | monocarboxylic acid catabolic process |
-| ...        | ... |
+<img width="452" height="217" alt="image" src="https://github.com/user-attachments/assets/746aabee-8fac-4681-aea9-63c97b50e821" /> 
+
 3) Собрать уникальные термины из всех групп в файл [all_terms.csv](https://github.com/KseniaMartynova/ml/blob/main/datasets/all_terms.csv):  ```all_terms = sorted(set(combined_table["term"]))```
 4) Получить эмбеддинги Hig2Vec с помощью [скрипта](https://github.com/KseniaMartynova/ml/blob/main/datasets/scripts/sorted_embedding.py).  Вызвать функцию: ```X = get_semantic_matrix(all_terms, embedding_dict)```.  
 Матрица X нужна для дальнейшей кластеризации.
